@@ -6,20 +6,11 @@
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"> <!-- bean definitions here -->
 
 
-    <bean id = "mathCheat" class=" com.example.demo.Student" scope="prototype"></bean>
+    <bean id = "mathCheat" class=" com.example.demo.MathsCheating" scope="prototype"></bean>
+    <bean id = "scienceCheat" class=" com.example.demo.ScienceCheating" scope="prototype"></bean>
 
-    <bean id = "cheat" class = "com.example.demo.Cheating" scope="prototype">
-        <property name = "id" value = "1001"></property>
-        <property name="student" ref = "mathCheat">
-
-
+    <bean id = "cheated" class = "com.example.demo.Student">
+        <property name="cheat" ref = "mathCheat">
         </property>
     </bean>
-
-
-    <bean id = "cheat2" class = "com.example.demo.AnotherCheating" scope="prototype">
-        <property name="student" ref = "mathCheat"> </property>
-
-    </bean>
-
 </beans>

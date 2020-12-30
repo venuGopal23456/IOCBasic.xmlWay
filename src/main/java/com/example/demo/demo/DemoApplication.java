@@ -9,16 +9,10 @@ public class DemoApplication {
 	public static void main(String[] args) {
 
 
-//Cheating cheating = new Cheating();
-//Student student = new Student();
-//cheating.setStudent(student);
-//cheating.getCheating();
-
 		ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
-		Cheating cheat = context.getBean("cheat",Cheating.class);
-		cheat.getCheating();
-		AnotherCheating cheat2 = context.getBean("cheat2",AnotherCheating.class);
-		cheat2.another();
+		System.out.println("Bean Got Created");
+		Student display = context.getBean("cheated",Student.class);
+		display.Display();
 
 	}
 
