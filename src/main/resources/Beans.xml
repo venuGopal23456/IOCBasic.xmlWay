@@ -1,25 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
+       xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"> <!-- bean definitions here -->
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"> <!-- bean definitions here -->
 
+    <!--Class Property Should Match for BYName
+    <bean id = "heart" class="com.example.demo1.Heart"></bean>
+    <bean id = "parts" class="com.example.demo1.Human" autowire="byName">
 
-    <bean id = "mathCheat" class=" com.example.demo.Student" scope="prototype"></bean>
+    </bean>-->
+<!--    Inner Class Name should match with the path Name-->
+<!--    <bean id = "heartObjectValue" class="com.example.demo1.Heart"></bean>-->
+<!--    <bean id = "parts" class="com.example.demo1.Human" autowire="byType">-->
 
-    <bean id = "cheat" class = "com.example.demo.Cheating" scope="prototype">
-        <property name = "id" value = "1001"></property>
-        <property name="student" ref = "mathCheat">
+<!--    </bean>-->
+<!--    This will activate autowire for the below Injection-->
+<context:annotation-config/>
+<!--    Now Using Autowiring-->
+<!--    Bytype will fail because we have two object to  overcome-->
+<!--        <bean id = "heartObjectValue" class="com.example.demo1.Heart"></bean>-->
+<!--    <bean id = "heartValue" class="com.example.demo1.Heart"></bean>-->
+<!--        <bean id = "parts" class="com.example.demo1.Human">-->
 
+<!--        </bean>-->
 
-        </property>
-    </bean>
+<!--    Use of @Qualifier Annotation - When autowire concept fail byName and byType we use this annotation-->
+            <bean id = "heartObjectValue" class="com.example.demo1.Heart">
+                <property name="name" value="Venu"/>
+                <property name="rollNo" value="123"/>
+            </bean>
+         <bean id = "octopusObject" class="com.example.demo1.Heart">
+             <property name="name" value="Gopal"/>
+             <property name="rollNo" value="153"/>
+         </bean>
+            <bean id = "parts" class="com.example.demo1.Human">
 
-
-    <bean id = "cheat2" class = "com.example.demo.AnotherCheating" scope="prototype">
-        <property name="student" ref = "mathCheat"> </property>
-
-    </bean>
-
+            </bean>
 </beans>
