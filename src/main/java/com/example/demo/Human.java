@@ -6,32 +6,40 @@ import org.springframework.beans.factory.annotation.Qualifier;
 public class Human {
 
 
-    //Adding Default constructor will work to create Bean
-//while using constructor to create bean we need this default constructor
-    public Human()
-    {}
+    //In case if we move the @value at variable level we dont need setter method like the example below
+    //@Value("${odd.name}")
+    private String name;
+    private String Id;
+    private String subject;
 
-    //We can add @Autowired and @Qualifier Here in that case it wont Print sout inside the setter method
-    //because spring is not using setter method for dependency injection
-    @Autowired
-    @Qualifier("octopusObject")
-    private Heart heart;
+    public String getName() {
+        return name;
+    }
 
-//while using constructor to inject dependency of heart
-//    @Autowired
-//    public Human(Heart heart) {
-//        this.heart = heart;
-//    }
+    @Value("${odd.name}")
+    public void setName(String name) {
+        this.name = name;
+    }
 
-//while using byName and byType Injection and also Autowire inside this same class for Setter Injection
+    public String getId() {
+        return Id;
+    }
+    @Value("123")
+    public void setId(String id) {
+        Id = id;
+    }
 
-//    public void setHeart(Heart heart) {
-//        this.heart = heart;
-//        System.out.println("Setter Method is Called");
-//    }
+    public String getSubject() {
+        return subject;
+    }
 
-    public void getOrgan(){
-        heart.getBeating();
-        System.out.println("My name is " + heart.getName() +" My Roll NO is " + heart.getRollNo());
+    @Value("Maths")
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
+    public void Studentinfo()
+    {
+        System.out.println("Name" + name + "Id"  + Id  + "Subject" + subject);
     }
 }

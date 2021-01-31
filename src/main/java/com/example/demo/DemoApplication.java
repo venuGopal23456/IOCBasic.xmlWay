@@ -11,8 +11,8 @@ public class DemoApplication {
 	public static void main(String[] args) {
 
 		ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
-		Human human = context.getBean("parts" , Human.class);
-		human.getOrgan();
+		Human human = context.getBean("odd", Human.class);
+		human.Studentinfo();
 	}
 
 }
