@@ -5,19 +5,6 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"> <!-- bean definitions here -->
 
-    <!--1stway-->
-    <!--    The Below way used to inject values from properties.file using beans.xml-->
-    <!--<context:property-placeholder location="classpath:student-info.properties"/>-->
-    <!--            <bean id = "odd" class="com.example.demo1.Human">-->
-    <!--                <property name="name" value="${odd.name}"/>-->
-    <!--                <property name="Id" value="${odd.id}"/>-->
-    <!--                <property name="subject" value="${odd.subject}"/>-->
-    <!--            </bean>-->
 
-
-    <!--    2ndway-->
-    <context:annotation-config/>
-    <context:property-placeholder location="classpath:student-info.properties"/>
-    <bean id = "odd" class="com.example.demo1.Human">
-    </bean>
+    <!--    <context:component-scan base-package="com.example.demo1"/>-->
 </beans>
